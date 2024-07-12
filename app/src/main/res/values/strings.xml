@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">SiNote</string>
+    <string name="app_logo">App Logo</string>
+<!--    <string name="onboard_description_1">Atur tugas dan catatanmu dengan mudah di sini.</string>-->
+<!--    <string name="onboard_description_2"> Optimalkan produktivitasmu dengan pengelolaan tugas yang efektif!</string>-->
+<!--    <string name="onboard_description_3">Mudahnya mengelola tugas-tugasmu melalui SiNote!</string>-->
+    <string name="blank"></string>
+    <string name="onboard_description_1_red">Atur&#160;</string>
+    <string name="onboard_description_1_black">tugas dan catatanmu dengan mudah di sini.</string>
+    <string name="onboard_description_2_red"> Optimalkan&#160;</string>
+    <string name="onboard_description_2_black">produktivitasmu dengan pengelolaan tugas yang efektif!</string>
+    <string name="onboard_description_3_black">Mudahnya mengelola tugas-tugasmu melalui&#160;</string>
+    <string name="onboard_description_3_red">SiNote!</string>
+    <string name="lewati">Lewati</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">Masuk</string>
+    <string name="ingat_saya">Ingat saya</string>
+    <string name="lupa_kata_sandi">Lupa kata sandi?</string>
+    <string name="lupa_kata_sandi_title">Lupa Kata Sandi</string>
+    <string name="atau_masuk_dengan">Atau masuk dengan</string>
+    <string name="atau_daftar_dengan">Atau daftar dengan</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="buat_kata_sandi">Buat Kata Sandi</string>
+    <string name="buat_kata_sandi_desc">Pilih kata sandi yang aman dan mudah diingat</string>
+    <string name="forgot_password_desc">Masukkan alamat email yang akan kami kirimkan OTP di email ini.</string>
+    <string name="kode_verifikasi_telah_dikirim">Kode verifikasi telah dikirimkan ke</string>
+    <string name="kirim_ulang_kode_dalam">Kirim ulang kode dalam</string>
+    <string name="detik">detik</string>
+    <string name="verifikasi">Verifikasi</string>
+    <string name="belum_ada_tugas">Belum ada tugas.</string>
+    <string name="buat_tugas_anda_sekarang">Buat tugas anda sekarang</string>
+</resources>
