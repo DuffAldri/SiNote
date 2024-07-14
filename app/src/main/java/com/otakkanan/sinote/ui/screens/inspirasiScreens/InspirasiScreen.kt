@@ -43,6 +43,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.otakkanan.sinote.ui.components.NavBar
 import com.otakkanan.sinote.ui.components.inspirasi.InspirasiCard
 import com.otakkanan.sinote.ui.components.inspirasi.createRandomInspirasiData
 import com.otakkanan.sinote.ui.components.mockNavController
@@ -73,6 +74,7 @@ fun InspirasiScreen(navController: NavController) {
             )
         },
         floatingActionButton = { FloatingButton { navController.navigate("create_inspirasi") } },
+        bottomBar = { NavBar(navController) },
         modifier = Modifier
     ) { paddingValues ->
         LazyColumn(modifier = Modifier.padding(paddingValues)) {

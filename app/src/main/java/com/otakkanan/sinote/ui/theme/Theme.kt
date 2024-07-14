@@ -13,11 +13,20 @@ import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
     primary = color_primary_600,
+    background = color_background,
+    surface = color_surface,
     secondary = PurpleGrey40,
     tertiary = Pink40,
     onBackground = color_primary2_700,
     onSurface = color_primary2_700,
-    onSurfaceVariant = color_primary2_300
+    onSurfaceVariant = color_primary2_300,
+    surfaceVariant = color_primary2_300,
+
+    primaryContainer = color_textfield,
+    onPrimaryContainer = color_primary2_600,
+
+    tertiaryContainer = color_primary_100,
+    onTertiaryContainer = color_primary_600
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -32,7 +41,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun SiNoteTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit

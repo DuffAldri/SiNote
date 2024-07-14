@@ -1,4 +1,4 @@
-package com.otakkanan.sinote.ui.screens.registerscreens.onboard
+package com.otakkanan.sinote.ui.screens.authScreens.onboard
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
@@ -21,6 +21,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,6 +35,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -47,6 +49,7 @@ import com.otakkanan.sinote.R
 import com.otakkanan.sinote.ui.components.SinglePage
 import com.otakkanan.sinote.ui.components.mockNavController
 import com.otakkanan.sinote.ui.components.pages
+import com.otakkanan.sinote.ui.navigations.Screen
 import com.otakkanan.sinote.ui.theme.SiNoteTheme
 import com.otakkanan.sinote.ui.theme.color_primary2_200
 import com.otakkanan.sinote.ui.theme.color_primary_600
@@ -151,9 +154,12 @@ fun OnBoardScreen(navController: NavController) {
             )
         }
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(Screen.Login.route)
+            },
             modifier = Modifier
-                .padding(vertical = 16.dp, horizontal = 16.dp)
+                .padding(vertical = 8.dp, horizontal = 16.dp)
+                .padding(top = 8.dp)
                 .height(IntrinsicSize.Max)
                 .fillMaxWidth(),
         ) {
@@ -163,20 +169,37 @@ fun OnBoardScreen(navController: NavController) {
                 text = stringResource(id = R.string.lanjut)
             )
         }
-        ClickableText(
-            text = AnnotatedString(stringResource(id = R.string.lewati)),
-            style = TextStyle(
-                color = color_primary_600,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+
+        Button(
+            onClick = {
+                navController.navigate("catatan_route") {
+                    popUpTo("catatan_route") {
+                        inclusive = true
+                    }
+                }
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Transparent
             ),
-            onClick = {navController.navigate("login")},
             modifier = Modifier
-                .padding(vertical = 16.dp)
+                .padding(vertical = 8.dp, horizontal = 16.dp)
                 .height(IntrinsicSize.Max)
-                .fillMaxWidth()
-        )
+                .fillMaxWidth(),
+        ) {
+            Text(
+                text = AnnotatedString(stringResource(id = R.string.lewati)),
+                style = TextStyle(
+                    color = color_primary_600,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                ),
+                modifier = Modifier
+                    .height(IntrinsicSize.Max)
+                    .fillMaxWidth()
+            )
+        }
+
         Spacer(modifier = Modifier.height(32.dp))
     }
 }

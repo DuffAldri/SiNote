@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.otakkanan.sinote.ui.theme.color_primary2_300
 import com.otakkanan.sinote.ui.theme.color_primary_600
-import com.otakkanan.sinote.ui.theme.color_tugas_textfield
+import com.otakkanan.sinote.ui.theme.color_textfield
 import com.otakkanan.sinote.ui.theme.color_white
 
 @Composable
@@ -49,9 +49,9 @@ fun CreateTugasTextField(
         },
         shape = RoundedCornerShape(5.dp),
         colors = OutlinedTextFieldDefaults.colors(
-            unfocusedBorderColor = color_tugas_textfield,
+            unfocusedBorderColor = color_textfield,
             focusedBorderColor = color_primary_600,
-            unfocusedContainerColor = color_tugas_textfield,
+            unfocusedContainerColor = color_textfield,
             focusedContainerColor = color_white
         ),
         keyboardOptions = KeyboardOptions(

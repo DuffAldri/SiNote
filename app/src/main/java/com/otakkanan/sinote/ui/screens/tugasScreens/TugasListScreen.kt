@@ -1,8 +1,8 @@
 package com.otakkanan.sinote.ui.screens.tugasScreens
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,14 +18,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -54,12 +50,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.otakkanan.sinote.R
+import com.otakkanan.sinote.ui.components.AddFab
+import com.otakkanan.sinote.ui.components.NavBar
 import com.otakkanan.sinote.ui.components.mockNavController
 import com.otakkanan.sinote.ui.components.tugas.CardTask
 import com.otakkanan.sinote.ui.components.tugas.CardTaskData
+import com.otakkanan.sinote.ui.navigations.Screen
 import com.otakkanan.sinote.ui.theme.SiNoteTheme
 import com.otakkanan.sinote.ui.theme.color_primary2_400
-import com.otakkanan.sinote.ui.theme.color_primary_600
 import com.otakkanan.sinote.ui.theme.color_tugas_filter
 import com.otakkanan.sinote.ui.theme.color_tugas_olahraga
 import com.otakkanan.sinote.ui.theme.color_tugas_pekerjaan
@@ -67,11 +65,11 @@ import com.otakkanan.sinote.ui.theme.color_tugas_sekolah
 import com.otakkanan.sinote.ui.theme.color_white
 
 @Composable
-fun TugasListScreen(navController: NavController, isEmpty: Boolean = true) {
+fun TugasListScreen(navController: NavController, isNotEmpty: Boolean = true) {
     Scaffold(
         topBar = { CustomTopAppBar() },
-        floatingActionButton = { AddTaskButton {navController.navigate("create_tugas")} }
-
+        floatingActionButton = { AddFab {navController.navigate(Screen.CreateTugas.route)} },
+        bottomBar = { NavBar(navController) },
     ) { innerPadding ->
         val previousTasks = listOf(
             CardTaskData(
@@ -112,11 +110,11 @@ fun TugasListScreen(navController: NavController, isEmpty: Boolean = true) {
         Column(
             Modifier.padding(innerPadding)
         ) {
-            CategoryTabs(selectedCategory = "Semua",onCategorySelected = {})
+            CategoryTabs(onCategorySelected = {})
             Column(
                 modifier = Modifier.padding(top = 16.dp)
             ) {
-                if(isEmpty)
+                if(!isNotEmpty)
                     EmptyTugasImage()
                 else{
                     Accordion("Sebelumnya") {
@@ -148,7 +146,9 @@ fun Accordion(title: String, modifier: Modifier = Modifier, content: @Composable
         modifier = modifier
             .fillMaxWidth()
     ) {
-        Column(modifier = Modifier.clickable { expanded = !expanded }.padding(16.dp)) {
+        Column(modifier = Modifier
+            .clickable { expanded = !expanded }
+            .padding(16.dp)) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
 //                modifier = Modifier.padding(8.dp)
@@ -225,27 +225,7 @@ fun CustomTopAppBar() {
 }
 
 @Composable
-fun AddTaskButton(onClick: () -> Unit) {
-    FloatingActionButton(
-        modifier = Modifier
-            .size(48.dp),
-        containerColor = color_primary_600,
-        shape = RoundedCornerShape(8.dp),
-        onClick = {onClick()}
-    ) {
-        Box(
-            modifier = Modifier
-                .border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(8.dp))
-                .size(24.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(Icons.Filled.Add, contentDescription = "Add Task", tint = Color.White, modifier = Modifier.size(16.dp))
-        }
-    }
-}
-
-@Composable
-fun CategoryTabs(selectedCategory: String = "", onCategorySelected: (String) -> Unit) {
+fun CategoryTabs(onCategorySelected: (String) -> Unit) {
     val categories = listOf("Semua" to color_white, "Pekerjaan" to color_tugas_pekerjaan, "Sekolah" to color_tugas_sekolah, "Olahraga" to color_tugas_olahraga)
     var selectedIndex by remember { mutableStateOf(0) }
 
@@ -254,7 +234,6 @@ fun CategoryTabs(selectedCategory: String = "", onCategorySelected: (String) -> 
         contentColor = Color.Black,
         edgePadding = 0.dp,
         divider = {},
-
     ) {
         categories.forEachIndexed { index, category ->
             Tab(
@@ -265,28 +244,32 @@ fun CategoryTabs(selectedCategory: String = "", onCategorySelected: (String) -> 
                 },
                 text = {
                     val isSelected = selectedIndex == index
-                    Row (verticalAlignment = Alignment.CenterVertically) {
-                        if(category.first != "Semua")
-                            Box(modifier = Modifier
-                                .offset(y = (-2).dp)
-                                .size(10.dp)
-                                .clip(CircleShape)
-                                .background(category.second)
+                    Row (
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .offset(y = if(isSelected) (-4).dp else 0.dp)
+                    ) {
+                        if(category.first != "Semua") {
+                            Box(
+                                modifier = Modifier
+                                    .offset(y = (-2).dp)
+                                    .size(10.dp)
+                                    .clip(CircleShape)
+                                    .background(category.second)
                             )
-                        Spacer(modifier = Modifier.width(4.dp))
+                            Spacer(modifier = Modifier.width(4.dp))
+                        }
                         Text(
                             text = category.first,
                             fontWeight =
                                 if(isSelected)
                                     FontWeight.SemiBold
                                 else
-                                    FontWeight.Normal,
-                            modifier = Modifier
-                                .offset(y = if(isSelected) (-4).dp else 0.dp)
+                                    FontWeight.Normal
                         )
                     }
-
-                }
+                },
+                modifier = Modifier
             )
         }
     }
@@ -309,9 +292,9 @@ fun TugasListScreenPreview() {
 fun CategoryTabsPreview() {
     SiNoteTheme {
         Surface(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxWidth()
         ) {
-            CategoryTabs(selectedCategory = "Semua", onCategorySelected = {})
+            CategoryTabs(onCategorySelected = {})
         }
     }
 }

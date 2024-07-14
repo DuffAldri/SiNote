@@ -46,11 +46,12 @@ import com.otakkanan.sinote.ui.theme.color_white
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AuthForm(
+    title: String = "",
+    placeholder: String = "",
     modifier: Modifier = Modifier,
     authFormType: AuthFormType,
     value: String = "",
     onValueChange: (String) -> Unit = {},
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     imeAction: ImeAction = ImeAction.Done,
     hideKeyboard: Boolean = false,
     onFocusChanged: (Boolean) -> Unit = {},
@@ -63,7 +64,11 @@ fun AuthForm(
         modifier = modifier
     ) {
         Text(
-            text = authFormType.title,
+            text = if(title != "") {
+                title
+            } else {
+                authFormType.title
+            },
             style = MaterialTheme.typography.titleMedium,
             fontSize = 18.sp,
             fontWeight = FontWeight.Medium,
@@ -90,7 +95,11 @@ fun AuthForm(
             },
             placeholder = {
                 Text(
-                    authFormType.placeholder,
+                    if(placeholder != "") {
+                        placeholder
+                    } else {
+                        authFormType.placeholder
+                    },
                     fontSize = 16.sp,
                     color = color_primary2_300,
                     maxLines = 1,
@@ -119,7 +128,7 @@ fun AuthForm(
 //                    Log.d("FocusChange", "isFocused = " + isFocused + " " + authFormType.title)
                 }
                 .background(
-                    color = if(isFocused) color_white else color_form_bg,
+                    color = if (isFocused) color_white else color_form_bg,
                     shape = RoundedCornerShape(20.dp)
                 )
                 .fillMaxWidth()

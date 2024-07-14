@@ -1,4 +1,4 @@
-package com.otakkanan.sinote.ui.screens.registerscreens.register
+package com.otakkanan.sinote.ui.screens.authScreens.register
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -42,7 +42,6 @@ import com.otakkanan.sinote.ui.components.AuthForm
 import com.otakkanan.sinote.ui.components.AuthFormType
 import com.otakkanan.sinote.ui.components.mockNavController
 import com.otakkanan.sinote.ui.theme.Typography
-import com.otakkanan.sinote.ui.theme.color_primary2_700
 import com.otakkanan.sinote.ui.theme.color_primary_600
 
 @Composable
@@ -131,7 +130,7 @@ fun RegisterScreen(navController: NavController) {
         )
 
         Button(
-            onClick = {navController.navigate("tugas")},
+            onClick = {navController.navigate("catatan_route")},
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier
                 .padding(vertical = 16.dp, horizontal = 16.dp)
@@ -171,7 +170,7 @@ fun RegisterScreen(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
@@ -185,7 +184,7 @@ fun RegisterScreen(navController: NavController) {
                 )
             }
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
@@ -199,7 +198,7 @@ fun RegisterScreen(navController: NavController) {
                 )
             }
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)

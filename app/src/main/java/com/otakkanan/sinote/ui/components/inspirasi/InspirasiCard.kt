@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -15,6 +16,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -95,24 +97,31 @@ fun InspirasiCard(
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Icon(painterResource(id = R.drawable.share), contentDescription = null)
+                    IconButton(onClick = {}, modifier = Modifier.size(32.dp).offset(x=-6.dp)) {
+                        Icon(painterResource(id = R.drawable.share), contentDescription = null)
+                    }
                     Spacer(modifier = Modifier.weight(1f))
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Icon(painterResource(id = R.drawable.thumbs_up), contentDescription = null)
-                        Spacer(modifier = Modifier.width(4.dp))
+                        IconButton(onClick = {}, modifier = Modifier.size(32.dp)) {
+                            Icon(
+                                painterResource(id = R.drawable.thumbs_up),
+                                contentDescription = null
+                            )
+                        }
                         Text(
                             text = inspirasiDataClass.likeCount.toString(),
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
-                    Spacer(modifier = Modifier.width(12.dp))
+                    Spacer(modifier = Modifier.width(16.dp))
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Icon(painterResource(id = R.drawable.view), contentDescription = null)
-                        Spacer(modifier = Modifier.width(4.dp))
+                        IconButton(onClick = {}, modifier = Modifier.size(32.dp)) {
+                            Icon(painterResource(id = R.drawable.view), contentDescription = null)
+                        }
                         Text(
                             text = inspirasiDataClass.viewCount.toString(),
                             style = MaterialTheme.typography.bodySmall

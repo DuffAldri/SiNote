@@ -31,5 +31,7 @@
     <string name="detik">detik</string>
     <string name="verifikasi">Verifikasi</string>
     <string name="belum_ada_tugas">Belum ada tugas.</string>
-    <string name="buat_tugas_anda_sekarang">Buat tugas anda sekarang</string>
+    <string name="belum_ada_catatan">Belum ada catatan.</string>
+    <string name="buat_tugas_anda_sekarang">Buat tugas anda sekarang.</string>
+    <string name="buat_catatan_anda_sekarang">Buat catatan anda sekarang.</string>
 </resources>

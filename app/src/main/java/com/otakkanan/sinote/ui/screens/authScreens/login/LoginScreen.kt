@@ -1,4 +1,4 @@
-package com.otakkanan.sinote.ui.screens.loginscreens.login
+package com.otakkanan.sinote.ui.screens.authScreens.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -154,7 +154,7 @@ fun LoginScreen(navController: NavController) {
         }
 
         Button(
-            onClick = {navController.navigate("tugas")},
+            onClick = {navController.navigate("catatan_route")},
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier
                 .padding(vertical = 16.dp, horizontal = 16.dp)
@@ -194,7 +194,7 @@ fun LoginScreen(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
@@ -208,7 +208,7 @@ fun LoginScreen(navController: NavController) {
                 )
             }
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
@@ -222,7 +222,7 @@ fun LoginScreen(navController: NavController) {
                 )
             }
             OutlinedButton(
-                onClick = {navController.navigate("tugas")},
+                onClick = {navController.navigate("catatan_route")},
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .padding(horizontal = 16.dp)

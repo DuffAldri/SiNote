@@ -11,6 +11,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 val color_white = Color(0xFFFFFFFF)
 val color_background = Color(0xFFFBFBFB)
+val color_surface = Color(0xFFFBFBFB)
 
 // PRIMARY1 COLOR - CINNABAR
 val color_primary_50 = Color(0xFFFEF3F2)
@@ -60,4 +61,4 @@ val color_tugas_pekerjaan = Color(0xFFDC4C3E)
 val color_tugas_sekolah = Color(0xFFFFC83F)
 val color_tugas_olahraga = Color(0xFFDCA1FF)
 
-var color_tugas_textfield = Color(0xFFEDF1F7)
+var color_textfield = Color(0xFFEDF1F7)

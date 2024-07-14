@@ -84,7 +84,7 @@ import com.otakkanan.sinote.ui.theme.SiNoteTheme
 import com.otakkanan.sinote.ui.theme.color_primary2_300
 import com.otakkanan.sinote.ui.theme.color_primary2_700
 import com.otakkanan.sinote.ui.theme.color_primary_600
-import com.otakkanan.sinote.ui.theme.color_tugas_textfield
+import com.otakkanan.sinote.ui.theme.color_textfield
 import com.otakkanan.sinote.ui.theme.color_white
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -163,7 +163,7 @@ fun CreateInspirasiScreen(navController: NavController, inspirasiDataClass: Insp
                                         singleLine = true,
                                         textStyle = MaterialTheme.typography.bodyMedium.copy(color = color_primary_600, textAlign = TextAlign.End),
                                         decorationBox = @Composable {
-                                            TextFieldDefaults.DecorationBox(
+                                            OutlinedTextFieldDefaults.DecorationBox(
                                                 value = text,
                                                 visualTransformation = VisualTransformation.None,
                                                 innerTextField = it,
@@ -187,9 +187,7 @@ fun CreateInspirasiScreen(navController: NavController, inspirasiDataClass: Insp
                                                         )
                                                     }
                                                 },
-                                                colors = OutlinedTextFieldDefaults.colors(
-
-                                                ),
+                                                colors = OutlinedTextFieldDefaults.colors(),
                                                 contentPadding = TextFieldDefaults.contentPaddingWithoutLabel(
                                                     start = 12.dp,
                                                     top = 0.dp,

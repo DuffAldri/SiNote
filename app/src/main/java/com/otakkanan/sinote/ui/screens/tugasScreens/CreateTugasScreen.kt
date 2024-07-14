@@ -87,12 +87,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.otakkanan.sinote.R
 import com.otakkanan.sinote.ui.components.AuthFormType
+import com.otakkanan.sinote.ui.components.NavBar
 import com.otakkanan.sinote.ui.components.mockNavController
 import com.otakkanan.sinote.ui.components.tugas.CategorySelector
 import com.otakkanan.sinote.ui.components.tugas.CreateBottomSheet
 import com.otakkanan.sinote.ui.components.tugas.CreateTugasTextField
 import com.otakkanan.sinote.ui.components.tugas.DropDownButton
 import com.otakkanan.sinote.ui.components.tugas.SubTugasTextField
+import com.otakkanan.sinote.ui.navigations.Screen
 import com.otakkanan.sinote.ui.theme.SiNoteTheme
 import com.otakkanan.sinote.ui.theme.color_form_bg
 import com.otakkanan.sinote.ui.theme.color_primary2_100
@@ -104,7 +106,7 @@ import com.otakkanan.sinote.ui.theme.color_primary2_700
 import com.otakkanan.sinote.ui.theme.color_primary_200
 import com.otakkanan.sinote.ui.theme.color_primary_300
 import com.otakkanan.sinote.ui.theme.color_primary_600
-import com.otakkanan.sinote.ui.theme.color_tugas_textfield
+import com.otakkanan.sinote.ui.theme.color_textfield
 import com.otakkanan.sinote.ui.theme.color_white
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -267,7 +269,7 @@ fun CreateTugasScreen(navController: NavController) {
                     onClick = { showPengingatBottomSheet = true },
                     shape = RoundedCornerShape(4.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = color_tugas_textfield,
+                        containerColor = color_textfield,
                         contentColor = color_primary2_300,
                     ),
                     contentPadding = PaddingValues(vertical = 4.dp, horizontal = 4.dp)
@@ -289,7 +291,7 @@ fun CreateTugasScreen(navController: NavController) {
                     onClick = { showUlangiTugasBottomSheet = true },
                     shape = RoundedCornerShape(4.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = color_tugas_textfield,
+                        containerColor = color_textfield,
                         contentColor = color_primary2_300,
                     ),
                     contentPadding = PaddingValues(vertical = 4.dp)
@@ -301,8 +303,8 @@ fun CreateTugasScreen(navController: NavController) {
 
             Button(
                 onClick = {
-                    navController.navigate("tugas") {
-                        popUpTo("tugas")
+                    navController.navigate(Screen.TugasList.createRoute(true)) {
+//                        popUpTo("login")
                     } },
                 shape = RoundedCornerShape(20.dp),
                 modifier = Modifier

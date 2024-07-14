@@ -21,7 +21,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.otakkanan.sinote.ui.theme.color_primary2_300
 import com.otakkanan.sinote.ui.theme.color_primary2_700
-import com.otakkanan.sinote.ui.theme.color_tugas_textfield
+import com.otakkanan.sinote.ui.theme.color_textfield
 
 
 @Composable
@@ -39,7 +39,7 @@ fun SubTugasTextField(
             Box(
                 modifier = Modifier
                     .size(20.dp)
-                    .background(color = color_tugas_textfield, shape = CircleShape)
+                    .background(color = color_textfield, shape = CircleShape)
                     .border(width = 1.dp, color = color_primary2_300, shape = CircleShape)
             )
             BasicTextField(
